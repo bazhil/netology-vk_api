@@ -1,5 +1,6 @@
 from urllib.parse import urlencode
 import  requests
+from pprint import pprint
 
 AUTH_URL='https://oauth.vk.com/authorize'
 APP_ID=6348055
@@ -11,13 +12,13 @@ def authorize(self):
     permissions = []
     # redirect_uri = 'https://oauth.vk.com/blank.html'
     # display = 'wap'
-    api_version = '5.73'
+    api_version = '5.71'
 
     auth_url_template = '{0}?client_id={1}&scope={2}&v={5}&response_type=token'
     auth_url = auth_url_template.format(api_auth_url, app_id, api_version)
 
     response = requests.get(auth_url)
-    print(response)
+    pprint(response)
 
 
 auth_data={
@@ -30,14 +31,14 @@ auth_data={
 
 # print('?'.join((AUTH_URL, urlencode(auth_data))))
 
-TOKEN= '05e8d8e984b4858cdfd2ea27e6c368e6475fc9665fbd4ef298888968ef10c108e80445350de39c537ec24'
+TOKEN = 'c11ffc7d462151be47bae6781d77544a503e624dce920c28a319f397faacc09798147e36b193927968535'
+target_uid = '4401253'
 
-params={
-    'acces_token': TOKEN,
-    'user_id': 1,
-    'order': 'name'
+params = {
+    'access_token': TOKEN,
+    'target_uid': target_uid
 }
 
 response= requests.get('https://api.vk.com/method/friends.getMutual', params)
-print(response.json())
-print(type(response.json()))
+pprint(response.json())
+pprint(type(response.json()))
