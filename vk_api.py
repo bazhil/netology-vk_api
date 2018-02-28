@@ -34,7 +34,7 @@ auth_data={
 TOKEN = '9336fc591e14a161ea101257556fbba1227dd6dabd05581464751444a553b2c441cd09150285bf24a6387'
 target_uid = '4401253'
 
-def find_friends():
+def find_friends(target_uid, TOKEN):
     params = {
         'access_token': TOKEN,
         'target_uid': target_uid
@@ -48,6 +48,6 @@ def find_friends():
     for x, y in enumerate(response.json()['response'], 1):
         pprint(f"{x}. id друга {y}. Ссылка на страницу друга: https://vk.com/id{y}")
 
-find_friends()
+find_friends(target_uid, TOKEN)
 
 authorize()
