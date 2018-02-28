@@ -6,7 +6,7 @@ AUTH_URL='https://oauth.vk.com/authorize'
 APP_ID=6348055
 
 
-def authorize(self):
+def authorize():
     api_auth_url = AUTH_URL
     app_id = APP_ID
     permissions = []
@@ -31,7 +31,7 @@ auth_data={
 
 # print('?'.join((AUTH_URL, urlencode(auth_data))))
 
-TOKEN = 'c11ffc7d462151be47bae6781d77544a503e624dce920c28a319f397faacc09798147e36b193927968535'
+TOKEN = '9336fc591e14a161ea101257556fbba1227dd6dabd05581464751444a553b2c441cd09150285bf24a6387'
 target_uid = '4401253'
 
 params = {
@@ -41,4 +41,6 @@ params = {
 
 response= requests.get('https://api.vk.com/method/friends.getMutual', params)
 pprint(response.json())
-pprint(type(response.json()))
+# pprint(type(response.json()))
+
+authorize()
