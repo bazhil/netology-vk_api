@@ -46,7 +46,7 @@ def find_friends():
     # pprint(response.json())
     # pprint(type(response.json()))
     for x, y in enumerate(response.json()['response'], 1):
-        pprint(f"{x}. id друга {y}. Ссылка на его страницу: https://vk.com/id{y}")
+        pprint(f"{x}. id друга {y}. Ссылка страницу друга: https://vk.com/id{y}")
 
 find_friends()
 
